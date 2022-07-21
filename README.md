@@ -1,7 +1,7 @@
 # Certified Kubernetes Application Developer
 
 ## Application Design and Build (20%)
-* Design, build and modify container images
+* ![Design, build and modify container images](containers.md)
 * Understand Jobs and CronJobs
 * Understand multi-container pod design
 * Utilize persistent and ephemeral volumes
