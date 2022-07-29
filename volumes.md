@@ -30,8 +30,8 @@ Create an nginx container using a persistent volume
   <summary>View</summary>
   
   ```
-  kind: PersistentVolume
   apiVersion: v1
+  kind: PersistentVolume
   metadata:
     name: mypvol
   spec:
