@@ -29,15 +29,15 @@ Generate a yaml file for an nginx container
   <summary>View</summary>
   
   ```yaml
-  apiVersion: v1
-  kind: Pod
-  metadata:
-    name: nginx
-  spec:
-    containers:
-    - name: nginx
-      image: nginx
-    restartPolicy: Never
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  restartPolicy: Never
   ```
 </details>
   
