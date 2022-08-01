@@ -22,7 +22,8 @@ spec:
   selector:
     matchLabels:
       type: worker
-  ```
+ ```
+</details>
 
 ## Scale ReplicaSet
 How can we scale the replica set from 2 to 3
@@ -60,3 +61,4 @@ spec:
   kubectl scale --replicas=3 replicaset myrs
   kubectl scale --replicas=3 -f replica.yaml
   ```
+</details>
