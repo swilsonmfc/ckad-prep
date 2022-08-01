@@ -1,3 +1,13 @@
+## Create Deployment Imperatively
+Create a deployment running nginx, named nginx with 3 replicas
+<details>
+  <summary>View</summary>
+  
+  ```
+  kubectl create deployment nginx --image=nginx --replicas=3
+  ```
+</details>
+
 ## Create Deployment
 Create a deployment with 2 replicas running nginx, name nginx, label worker
 <details>
