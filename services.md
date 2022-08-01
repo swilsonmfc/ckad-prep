@@ -9,6 +9,16 @@ Create a service named nginx-service exposing nginx pod on port 8080
   ```
 </details>
 
+## Create Service Imperatively
+Create a service named nginx-service exposing nginx pod on port 8080 targeting port 80
+<details>
+  <summary>View</summary>
+  
+  ```
+  kubectl expose pod nginx --port=8080 --target-port=80 --name nginx-service
+  ```
+</details>
+
 ## Create Pod & Service Imperatively
 Create a service named nginx-service exposing nginx pod on port 8080
 <details>
