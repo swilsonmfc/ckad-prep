@@ -1,3 +1,6 @@
+## Notes:
+* https://kubernetes.io/docs/concepts/configuration/secret/#risks
+
 ## Create Imperative Secrets
 Create a Secret with username, password (Note - secrets are not secure -- these are just obscured a bit)
 <details>
