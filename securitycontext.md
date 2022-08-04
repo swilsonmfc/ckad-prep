@@ -1,4 +1,9 @@
-```
+## Create Pod with SecurityContext
+Create a pod running as user 1001 with capability SYS_TIME
+<details>
+  <summary>View</summary>
+  
+  ```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,3 +17,5 @@ spec:
       capabilities:
         add: ['SYS_TIME']
 ```
+</details>
+
