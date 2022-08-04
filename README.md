@@ -10,7 +10,7 @@
 * Discover and use resources that extend Kubernetes (CRD)
 * Understand authentication, authorization and admission control
 * Understand and defining resource requirements, limits and quotas
-* [Understand ConfigMaps](configmaps.md)
+* [Understand ConfigMaps](configmap.md)
 * Create and consumer Secrets
 * Understand ServiceAccounts
 * Understand SecurityContexts
