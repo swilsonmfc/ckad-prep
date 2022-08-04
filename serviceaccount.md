@@ -1,6 +1,5 @@
 ## Create Imperative ServiceAccount
-Create a ConfigMap with literals HOST & PORT
-<details>
+Create a ServiceAccount for the metrics-server
   <summary>View</summary>
   
   ```
