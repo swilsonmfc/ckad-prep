@@ -1,40 +1,27 @@
 ## Create Imperative ConfigMap
-Create a ConfigMap with literals HOST & PORT
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create cm myconfigmap --from-literal=HOST=myhost.com --from-literal=PORT=3306
-  ```
-</details>
+Create a ConfigMap with literals HOST & PORT  
+```
+kubectl create cm myconfigmap --from-literal=HOST=myhost.com --from-literal=PORT=3306
+```
+
 
 
 ## Create Imperative ConfigMap Pulling Values From File
 Create a ConfigMap from a file
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create cm myconfigmap --from-file=HOST=config.txt
-  ```
-</details>
+```
+kubectl create cm myconfigmap --from-file=HOST=config.txt
+```
 
 ## Create Imperative ConfigMap From File
 Create a ConfigMap from a file
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create cm myconfigmap --from-env-file=config.txt
-  ```
-</details>
+```
+kubectl create cm myconfigmap --from-env-file=config.txt
+```
 
 ## Create Imperative ConfigMap From YAML
 Create a ConfigMap from a yaml file
-<details>
-  <summary>View</summary>
-  
-  ```
+
+```
 apiVersion: v1  
 kind: ConfigMap
 metadata:
@@ -42,15 +29,11 @@ metadata:
 data:
   HOST: myhost.com 
   PORT: 3306
-  ```
-</details>
+```
 
 ## Create Pod With Environment Variable
 Create a pod declaring a HOST & PORT 
-<details>
-  <summary>View</summary>
-  
-  ```
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -65,15 +48,11 @@ spec:
     - name: PORT
       value: 3306
   restartPolicy: Never
-  ```
-</details>
+```
 
 ## Create Pod With Environment Variables
 Create a pod declaring a HOST & PORT pulling values from config map
-<details>
-  <summary>View</summary>
-  
-  ```
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -94,15 +73,12 @@ spec:
           name: myconfigmap
           key: PORT
   restartPolicy: Never
-  ```
-</details>
+```
 
 ## Create Pod Using ConfigMap
 Create a ConfigMap from a file
-<details>
-  <summary>View</summary>
   
-  ```
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -115,15 +91,11 @@ spec:
     - configMapRef:
       name: myconfigmap
   restartPolicy: Never
-  ```
-</details>
+```
 
 ## Create Pod Using ConfigMap Volume
 Create a ConfigMap volume and mount in a pod
-<details>
-  <summary>View</summary>
-  
-  ```
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -140,5 +112,4 @@ spec:
     - name: config-volume
       mountPath: /etc/config
   restartPolicy: Never
-  ```
-</details>
+```
