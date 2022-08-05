@@ -4,8 +4,6 @@ Create a ConfigMap with literals HOST & PORT
 kubectl create cm myconfigmap --from-literal=HOST=myhost.com --from-literal=PORT=3306
 ```
 
-
-
 ## Create Imperative ConfigMap Pulling Values From File
 Create a ConfigMap from a file
 ```
@@ -20,8 +18,7 @@ kubectl create cm myconfigmap --from-env-file=config.txt
 
 ## Create Imperative ConfigMap From YAML
 Create a ConfigMap from a yaml file
-
-```
+```yaml
 apiVersion: v1  
 kind: ConfigMap
 metadata:
@@ -33,7 +30,7 @@ data:
 
 ## Create Pod With Environment Variable
 Create a pod declaring a HOST & PORT 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -52,7 +49,7 @@ spec:
 
 ## Create Pod With Environment Variables
 Create a pod declaring a HOST & PORT pulling values from config map
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -77,8 +74,7 @@ spec:
 
 ## Create Pod Using ConfigMap
 Create a ConfigMap from a file
-  
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -95,7 +91,7 @@ spec:
 
 ## Create Pod Using ConfigMap Volume
 Create a ConfigMap volume and mount in a pod
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
