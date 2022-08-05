@@ -3,32 +3,21 @@
 
 ## Create Container
 Create an nginx container using the run command
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl run <name> --image=<image> --restart=<restartPolicy> 
-  kubectl run nginx --image=nginx --restart=Never
-  ```
-</details>
-  
+```
+kubectl run <name> --image=<image> --restart=<restartPolicy> 
+kubectl run nginx --image=nginx --restart=Never
+```
+
 ## Create Container Yaml
 Generate a yaml file for an nginx container 
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl run <name> --image=<image> --restart=<restartPolicy> --dry-run=client -o yaml > nginx.yaml
-  kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml > nginx.yaml
-  ```
-</details>
+```
+kubectl run <name> --image=<image> --restart=<restartPolicy> --dry-run=client -o yaml > nginx.yaml
+kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml > nginx.yaml
+```
   
 ## Create Container File
 Generate a yaml file for an nginx container 
-<details>
-  <summary>View</summary>
-  
-  ```yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -37,40 +26,34 @@ spec:
   containers:
   - name: nginx
     image: nginx
-  restartPolicy: Never
-  ```
-</details>
+restartPolicy: Never
+```
+
   
 ## Create Container
 Create a container from yaml file
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create -f <filename> 
-  kubectl create -f nginx.yaml
-  ```
-</details>
-  
+```
+kubectl create -f <filename> 
+kubectl create -f nginx.yaml
+```
+
 ## View running pods
 Get a list of running pods 
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl get po 
-  kubectl get pod 
-  kubectl get pods
-  ```
-</details>
+```
+kubectl get po 
+kubectl get pod 
+kubectl get pods
+```
   
 ## View details of a running pod
 Get a list of running pods using the describe command
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl describe <type> <name>
-  kubectl describe pod nginx
-  ```
-</details>
+```
+kubectl describe <type> <name>
+kubectl describe pod nginx
+```
+
+## View the image of a running pod
+```
+kubectl describe <type> <name> | grep -i image
+kubectl describe pod nginx | grep -i image
+```
