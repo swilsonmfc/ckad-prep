@@ -5,7 +5,7 @@ kubectl taint nodes node1 type=frontend:NoSchedule
 ```
 
 ## Tolerations for a Pod
-Taint Node1 with type=frontend as NoSchedule
+Add Toleration for type=frontend as NoSchedule
 ```
 apiVersion: v1
 kind: Pod
@@ -23,7 +23,7 @@ spec:
 ```
 
 ## Taint a Node
-Remove the tain on Node1 with type=frontend and NoSchedule
+Remove the taint on Node1 with type=frontend and NoSchedule
 ```
 kubectl taint nodes node1 type=frontend:NoSchedule-
 ```
