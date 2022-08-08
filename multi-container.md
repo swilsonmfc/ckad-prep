@@ -19,6 +19,7 @@ spec:
     image: busybox
     command: [ "/bin/sh", "-c", "--" ]
     args: [ "while true; do sleep 60; done;" ]
+    
   restartPolicy: Never
 ```
   
@@ -34,6 +35,28 @@ kubectl logs multi -c container2
 ```
 
 ## Init Container
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+spec:
+  volumes:
+  - name: logs
+    emptyDir: {}
+  initContainers:
+  - name: startup
+    image: busybox
+    command: ["sleep", "30"]
+  containers:
+  - name: app
+    image: nginx
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: logs
+      mountPath: /var/logs
+```
 
 ## Sidecar Pattern
 * Helper container that coexists with main functionality
@@ -45,13 +68,22 @@ kind: Pod
 metadata:
   name: webapp
 spec:
+  volumes:
+  - name: logs
+    emptyDir: {}
   containers:
   - name: app
     image: nginx
     ports:
     - containerPort: 80
+    volumeMounts:
+    - name: logs
+      mountPath: /var/logs
   - name: logger
     image: agent
+    volumeMounts:
+    - name: logs
+      mountPath: /var/logs
 ```
 
 ## Adapter Pattern
