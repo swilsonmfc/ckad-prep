@@ -90,6 +90,6 @@ spec:
     - containerPort: 8080
     livenessProbe:
       httpGet:
-        path: /ready
+        path: /healthy
         port: 8080
 ```
