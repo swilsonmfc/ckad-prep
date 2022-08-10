@@ -89,7 +89,6 @@ kubectl rollout history deployment/mydeploy
 
 Perform a Rollback
 ```
-kubectl rollback deployment/mydeploy
 kubectl rollout undo deployment/mydeploy
 kubectl rollout undo deployment/mydeploy --to-revision=1
 ```
