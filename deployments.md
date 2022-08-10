@@ -61,3 +61,40 @@ spec:
 kubectl scale deployment mydep --replicas=3 
 kubectl scale -f replica.yaml --replicas=3 
 ```
+
+## Upgrade Strategies
+* Recreate - delete all pods and recreate (not default)
+* Rolling
+  * New ReplicaSet created
+  * Destroys pods in prior version of ReplicaSet   
+  * Brings up upgraded pods in new ReplicaSet
+
+## Upgrades
+Create a Deployment
+```
+kubectl create deployment mydeploy --image=nginx
+kubectl rollout status deployment/mydeploy
+```
+
+Upgrade
+```
+kubectl set image deployment/mydeploy nginx=nginx:1.19.1
+kubectl rollout status deployent/mydeploy
+```
+
+View History
+```
+kubectl rollout history deployment/mydeploy
+```
+
+Perform a Rollback
+```
+kubectl rollback deployment/mydeploy
+kubectl rollout undo deployment/mydeploy
+kubectl rollout undo deployment/mydeploy --to-revision=1
+```
+
+History - Recording
+```
+kubectl apply -f deploy.yaml --record
+```
