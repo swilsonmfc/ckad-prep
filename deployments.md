@@ -6,7 +6,8 @@ kubectl create deployment nginx --image=nginx --replicas=3
 
 ## Create Deployment
 Create a deployment with 2 replicas running nginx, name nginx, label worker
-```
+
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -35,7 +36,7 @@ How can we scale the deployment from 2 to 3
 kubectl replace -f replica.yaml 
 ```
   
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -93,7 +94,65 @@ kubectl rollout undo deployment/mydeploy
 kubectl rollout undo deployment/mydeploy --to-revision=1
 ```
 
+Pause a Rollout
+```
+kubectl rollout pause deployment/mydeploy
+```
+
 History - Recording
 ```
 kubectl apply -f deploy.yaml --record
+```
+
+## Declarative Recreate Strategy
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mydep
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: myapp
+      labels:
+        type: worker
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: worker
+```
+
+## Declarative Rollout Strategy
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mydep
+spec:
+  strategy:
+    type: RollingUpdate
+      maxUnavailable: 25%
+      maxSurge: 25%
+  template:
+    metadata:
+      name: myapp
+      labels:
+        type: worker
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: worker
 ```
