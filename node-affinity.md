@@ -11,7 +11,7 @@
 
 ## Declarative Affinity
 Assign affinity to Big and Medium node types
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -34,7 +34,7 @@ spec:
 
 ## Declarative Affinity
 Assign affinity to exclude Small Nodes
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -56,7 +56,7 @@ spec:
 
 ## Declarative Affinity - Deployments
 Affinity for deployment on frontend nodes
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
