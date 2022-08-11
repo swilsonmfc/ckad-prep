@@ -3,37 +3,24 @@
 
 ## Create Imperative Secrets
 Create a Secret with username, password (Note - secrets are not secure -- these are just obscured a bit)
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create secret generic secrets --from-literal=username=user --from-literal=password=pass
-  ```
-</details>
-
+```
+kubectl create secret generic secrets --from-literal=username=user --from-literal=password=pass
+```
 
 ## Create Imperative Secrets From File
 Create a Secret from a file
-<details>
-  <summary>View</summary>
-  
-  ```
-  kubectl create secret generic secrets --from-file=secrets.txt
-  ```
-</details>
+```
+kubectl create secret generic secrets --from-file=secrets.txt
+```
 
 ## Create Declarative Secrets
-Create a Secret from yaml
-<details>
-  <summary>View</summary>
+Create a Secret from yaml (Base64 encode values)
+```
+echo -n 'user' | base64
+echo -n 'pass' | base64
+```
   
-  Base64 encode values
-  ```
-  echo -n 'user' | base64
-  echo -n 'pass' | base64
-  ```
-  
-  ```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -41,17 +28,13 @@ metadata:
 data:
   username: dXNlcg==
   password: cGFzcw==
-  ```
-</details>
-
+```
 
 ## Consume Secrets in a Pod as Env Variables
 Create a Secret from a file
-<details>
-  <summary>View</summary>
   
-  Create pod.yaml
-  ```
+Create pod.yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata: 
@@ -63,21 +46,18 @@ spec:
     envFrom:
     - secretRef:
         name: secrets
-  ```
+```
   
-  Create pod
-  ```
-  kubectl create -f pod.yaml
-  ```
-</details>
+Create pod  
+```
+kubectl create -f pod.yaml
+```
 
 ## Consume Secrets in a Pod as Volume
 Create a Secret from a file
-<details>
-  <summary>View</summary>
-  
-  Create pod.yaml
-  ```
+
+Create pod.yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata: 
@@ -93,10 +73,9 @@ spec:
     volumeMounts:
     - name: app-volume
       mountPath: /opt/secrets
-  ```
+```
   
-  Create pod
-  ```
-  kubectl create -f pod.yaml
-  ```
-</details>
+Create pod
+```
+kubectl create -f pod.yaml
+```
