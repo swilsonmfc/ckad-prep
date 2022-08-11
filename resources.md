@@ -3,10 +3,8 @@
 
 ## Create Container
 Create an nginx container with memory request and limits
-<details>
-  <summary>View</summary>
-  
-```
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,4 +19,4 @@ spec:
       limits:
         memory: "50Mi"
 ```
-</details>
+
