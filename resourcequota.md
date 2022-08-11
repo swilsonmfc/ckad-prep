@@ -1,7 +1,5 @@
 ## Create ResourceQuota
 Create a resource quota for the testing namespace
-<details>
-  <summary>View</summary>
   
 ```yaml
 apiVersion: v1
@@ -17,4 +15,4 @@ spec:
     limits.cpu: "1"
     limits.memory: 200Mi
 ```
-</details>
+
