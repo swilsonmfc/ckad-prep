@@ -56,4 +56,20 @@ spec:
 ```
 
 ## CronJobs
+Create a job that runs every minute
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: myjob
+spec:
+  schedule: "* * * * *"
+  template:
+    spec:
+      containers:
+      - name: myjob
+        image: busybox
+        command: ["echo", "world"]
+      restartPolicy: OnFailure
+```
 
