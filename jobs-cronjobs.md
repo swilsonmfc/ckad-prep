@@ -64,12 +64,16 @@ metadata:
   name: myjob
 spec:
   schedule: "* * * * *"
-  template:
+  jobTemplate:
     spec:
-      containers:
-      - name: myjob
-        image: busybox
-        command: ["echo", "world"]
-      restartPolicy: OnFailure
+      completions: 3
+      parallelism: 3
+      template:
+        spec:
+          containers:
+          - name: myjob
+            image: busybox
+            command: ["echo", "world"]
+          restartPolicy: OnFailure
 ```
 
