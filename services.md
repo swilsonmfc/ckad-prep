@@ -21,7 +21,7 @@ kubectl run nginx --image=nginx --port=8080 --expose
 * Ports
   * nodePort - Port listening on the node that will forward to the service
     * Default = auto-assigned
-    * Must be in range 30000 and 33767
+    * Must be in range 30000 and 32767
   * port - Port in the service handling incoming requests from nodePort
     * Required
   * targetPort - Target to send traffic to on selected pods
