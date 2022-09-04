@@ -2,10 +2,8 @@
 
 ## Create Volume
 Create an nginx container with an empy directory volume
-<details>
-  <summary>View</summary>
-  
-  ```
+
+ ```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,15 +19,13 @@ spec:
     - name: myvol
       mountPath: /etc/data
   restartPolicy: Never
-  ```
-</details>
+```
+
 
 ## Create Persistent Volume, Claim & Pod
 Create an nginx container using a persistent volume
-<details>
-  <summary>View</summary>
   
-  ```
+```
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -43,9 +39,9 @@ spec:
     - ReadWriteMany
   hostPath:
     path: /etc/pvol
-  ```
+```
   
-  ```
+```
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -57,9 +53,9 @@ spec:
   resources:
     requests:
       storage: 1Mi
-  ```
+```
   
-  ```
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -76,5 +72,4 @@ spec:
     - name: myvol
       mountPath: /etc/data
   restartPolicy: Never
-  ```
-</details>
+```
